@@ -20,7 +20,8 @@ pipeline {
                             -n demoEmptyRG \
                             -l southcentralus \
                             --template-file "$WORKSPACE/template.json"
-                            --parameters rgName=demoRG rgLocation=northcentralus
+                            --parameters "{ \"rgLocation\": { \"value\": \"westus\" } }"
+                            --parameters "{ \"rgName\": { \"value\": \"demoRG\" } }"
                             
                 
                 '''
