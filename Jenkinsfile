@@ -12,12 +12,12 @@ pipeline {
         stage('LOGGING Azure') {
             steps {
                     sh ''' 
-                            ############################### Powershell #############################
+                            ############################### shell #############################
                             
                             
                             az login
                             az account show
-                            templateFile="{/Users/joe/.jenkins/workspace/Azure/template.json}"
+                            templateFile="{./template.json}"
                             az deployment group create \
                             --name joedeployment \
                             --resource-group joerg \
