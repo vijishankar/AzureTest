@@ -16,10 +16,7 @@ pipeline {
                             
                             az login
                             az account show
-                            az deployment group create \
-                            --name joedeployment \
-                            --resource-group joerg \
-                            --template-file ${WORKSPACE}/template.json
+                            az deployment create --name "rg1" --location "West Europe" --template-file template.json --parameters template.parameters.json 
                             
                 
                 '''
