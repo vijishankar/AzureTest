@@ -16,7 +16,11 @@ pipeline {
                             
                             az login
                             az account show
-                            az deployment sub create --name "rg1" --location "West Europe" --template-file template.json --parameters template.parameters.json 
+                            az deployment create \
+                            -n demoEmptyRG \
+                            -l southcentralus \
+                            --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+                            --parameters rgName=demoRG rgLocation=northcentralus
                             
                 
                 '''
