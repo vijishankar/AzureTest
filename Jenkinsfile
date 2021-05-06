@@ -17,7 +17,7 @@ pipeline {
                             
                             az login
                             az account show
-                            templateFile="{/Users/joe/.jenkins/workspace/Azure/template.json}"
+                            templateFile="{/Users/joe/.jenkins/workspace/Azure}"
                             az deployment group create \
                             --name joedeployment \
                             --resource-group joerg \
