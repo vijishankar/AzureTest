@@ -16,10 +16,10 @@ pipeline {
                             
                             az login
                             az account show
-                            az deployment sub create \
+                            az deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
-                            --template-file template.json
+                            --template-file ".\template.json"
                             --parameters rgName=demoRG rgLocation=northcentralus
                             
                 
