@@ -13,11 +13,15 @@ pipeline {
             steps {
                     sh ''' 
                             ############################### shell #############################
+                            $Env:SYSTEM_DEFAULTWORKINGDIRECTORY = $env:WORKSPACE
+                            $scriptRoot = $( $Env:SYSTEM_DEFAULTWORKINGDIRECTORY  )
+                            Set-Location $scriptRoot
+                            $ErrorActionPreference = "Stop"
                             
                             
                             az login
                             az account show
-                            templateFile="{/Users/joe/.jenkins/workspace/Azure/template.json}"
+                            templateFile="{./template.json}"
                             az deployment group create \
                             --name joedeployment \
                             --resource-group joerg \
