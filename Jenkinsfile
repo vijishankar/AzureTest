@@ -14,13 +14,18 @@ pipeline {
                     sh ''' 
                             ############################### shell #############################   
                             
+                            $Env:SYSTEM_DEFAULTWORKINGDIRECTORY = $env:WORKSPACE
+                            $scriptRoot = $( $Env:SYSTEM_DEFAULTWORKINGDIRECTORY  )
+                            Set-Location $scriptRoot
+                            $ErrorActionPreference = "Stop"
+                            
                             az login
                             az account show
                             az deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
-                            --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
-                            --parameters rgName=demoRG rgLocation=northcentralus
+                            --template-file Template.json \
+                            --parameters Template.parameters.json
                             
                 
                 '''
