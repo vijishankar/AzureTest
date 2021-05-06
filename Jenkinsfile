@@ -16,7 +16,7 @@ pipeline {
                             
                             az login
                             az account show
-                            az deployment create \
+                            az group deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
                             --template-file /Users/joe/.jenkins/workspace/Azure/template.json
