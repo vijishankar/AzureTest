@@ -4,7 +4,7 @@ pipeline {
     
     environment {
         AZURE_ID = credentials('Azure_User_Id')
-        AZURE_Password = credentials('AZURE_Pass')
+        AZURE_Password = credentials('Azure_Pass')
     }
 
     stages {
