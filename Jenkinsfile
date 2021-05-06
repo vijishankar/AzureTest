@@ -19,7 +19,7 @@ pipeline {
                             az deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
-                            --template-file ".\template.json"
+                            --template-file "$WORKSPACE/template.json"
                             --parameters rgName=demoRG rgLocation=northcentralus
                             
                 
