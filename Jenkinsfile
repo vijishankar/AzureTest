@@ -15,7 +15,7 @@ pipeline {
                             ############################### Powershell #############################
                             
                             
-                            az login -u $Env:AZURE_ID -p $Env:AZURE_Password 
+                            az login
                             az account show
                 
                 '''
