@@ -12,20 +12,14 @@ pipeline {
         stage('LOGGING Azure') {
             steps {
                     sh ''' 
-                            ############################### shell #############################
-                            $Env:SYSTEM_DEFAULTWORKINGDIRECTORY = $env:WORKSPACE
-                            $scriptRoot = $( $Env:SYSTEM_DEFAULTWORKINGDIRECTORY  )
-                            Set-Location $scriptRoot
-                            $ErrorActionPreference = "Stop"
-                            
+                            ############################### shell #############################   
                             
                             az login
                             az account show
-                            templateFile="{./template.json}"
                             az deployment group create \
                             --name joedeployment \
                             --resource-group joerg \
-                            --template-file $templateFile
+                            --template-file ${WORKSPACE}/template.json
                             
                 
                 '''
