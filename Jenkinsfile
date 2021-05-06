@@ -16,10 +16,10 @@ pipeline {
                             
                             az login
                             az account show
-                            az group deployment create \
+                            az deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
-                            --template-file /Users/joe/.jenkins/workspace/Azure/template.json
+                            --template-file template.json
                             --parameters rgName=demoRG rgLocation=northcentralus
                             
                 
