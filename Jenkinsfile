@@ -16,7 +16,7 @@ pipeline {
                             
                             az login
                             az account show
-                            az deployment create \
+                            az deployment sub create \
                             -n demoEmptyRG \
                             -l southcentralus \
                             --template-file template.json
