@@ -17,6 +17,12 @@ pipeline {
                             
                             az login
                             az account show
+                            templateFile="{./template.json}"
+                            az deployment group create \
+                            --name joedeployment \
+                            --resource-group joerg \
+                            --template-file $templateFile
+                            
                 
                 '''
             }
