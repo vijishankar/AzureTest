@@ -19,9 +19,8 @@ pipeline {
                             az deployment create \
                             -n demoEmptyRG \
                             -l southcentralus \
-                            --template-file "$WORKSPACE/template.json"
-                            --parameters "{ \"rgLocation\": { \"value\": \"westus\" } }"
-                            --parameters "{ \"rgName\": { \"value\": \"demoRG\" } }"
+                            --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+                            --parameters rgName=demoRG rgLocation=northcentralus
                             
                 
                 '''
